@@ -1,0 +1,30 @@
+admin_inventario:
+    pattern:  /
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:index" }
+
+admin_inventario_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:show" }
+
+admin_inventario_new:
+    pattern:  /new
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:new" }
+
+admin_inventario_create:
+    pattern:  /create
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:create" }
+    requirements: { _method: post }
+
+admin_inventario_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:edit" }
+
+admin_inventario_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:update" }
+    requirements: { _method: post|put }
+
+admin_inventario_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:Inventario:delete" }
+    requirements: { _method: post|delete }

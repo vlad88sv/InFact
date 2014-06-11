@@ -1,0 +1,19 @@
+<div id="cabecera">
+    <table>
+        <tr>
+            <td id="cabecera_izquierda">
+                <a href="{{ url('qualium_in_fact_amalgama_inicio') }}"><img src="{{ asset('images/hmg.png') }}" /></a>
+            </td>
+            <td id="cabecera_derecha">
+                {% if app.user %}
+                    Identificado como <b>{{ app.user.username }}</b> <a class="boton" href="{{ path('fos_user_security_logout') }}">Salir</a>
+                {% else %}
+                    {% if path(app.request.attributes.get('_route')) != path('fos_user_security_login') %}
+                        <a class="boton" href="{{ path('fos_user_security_login') }}">Iniciar</a>
+                    {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    
+</div>

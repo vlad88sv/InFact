@@ -1,0 +1,157 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05-jun-2014, 22:10:53
+    Author     : vladimir
+    Perfil     : http://www.colorcombos.com/color-schemes/124/ColorCombo124.html
+*/
+
+html, body, #container {
+    height: 100%; 
+    font-family: Consolas, monaco, monospace;
+}
+body > #container { height: auto; min-height: 100%; }
+a {
+    color: #00adef;
+    text-decoration: none;
+}
+
+a.boton {
+    color: whitesmoke;
+    background: #00adef;
+    border: 1px #00adef solid;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+a.boton:hover {
+    background: #336699;
+}
+
+#cabecera { border-bottom: #00adef 2px solid;margin-bottom: 1em;}
+#cabecera > table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#cabecera_izquierda {
+    text-align: left;
+}
+#cabecera_derecha {
+    text-align: right;
+    vertical-align: bottom;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+#content {
+    padding-bottom: 3em;
+    max-width: 1024px;
+    margin:auto;
+}
+#footer {
+    clear: both;
+    position: relative;
+    z-index: 999999999;
+    height: 3em;
+    margin-top: -3em;
+    border-top: 1px solid #c7c7c7;
+    color: #687a7a;
+    text-align: center;
+    line-height: 3em;
+    font-weight: bold;
+}
+
+.centrar {
+    text-align: center;
+    margin:auto;
+}
+
+.super-titulo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+.centrar {
+    text-align: center;
+    margin:auto;
+}
+
+.super-titulo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#fos_user_registration_form div label {
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.fos_user_registration_register  input[type="submit"] {
+    margin-left: 250px;
+}
+
+.lista_botones li {
+    margin-bottom: 15px;
+}
+
+.records_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.records_list thead {
+    background: #D0D0D0;
+    color: #49166D;
+}
+
+.records_list tr {
+    border-bottom: 1px solid #D0D0D0;
+}
+
+.records_list th, .records_list td {
+    text-align: left;
+}
+
+#inventarioContenedorCodigoBarra {
+    text-align: center;
+}
+
+#inventarioCodigoBarra {
+    width: 400px;
+    text-align: center;
+    border: 1px solid blue;
+    font-size: 1.2em;
+    padding:5px;
+    margin:5px;
+}
+
+#inventarioCodigoBarra:focus {
+    border: 1px solid red;
+}
+
+#inventarioContenedorResultados {
+    min-height: 500px;
+    border: 1px solid #555;
+    border-radius: 15px;
+}
+
+#inventarioResultados > li {
+    display: none;
+    margin-bottom: 10px;
+}
+
+li.inventarioResultados_noEncontrado {
+    font-size:8pt;
+    color: red;
+}
+
+li.inventarioResultados_duplicado {
+    font-size:8pt;
+    color: blue;
+}

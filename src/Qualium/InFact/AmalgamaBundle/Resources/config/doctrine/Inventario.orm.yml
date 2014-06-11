@@ -1,0 +1,45 @@
+Qualium\InFact\AmalgamaBundle\Entity\Inventario:
+    type: entity
+    table: null
+    indexes:
+        codigoBarra_ix:
+          columns: [ codigoBarra ]
+        flagRestriccion_ix:
+          columns: [ flagRestriccion ]
+        flagDescontinuado_ix:
+          columns: [ flagRestriccion ]
+        
+    repositoryClass: Qualium\InFact\AmalgamaBundle\Entity\InventarioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codigoBarra:
+            type: string
+            length: 255
+        nombre:
+            type: string
+            length: 255
+        descripcion:
+            type: string
+            length: 255
+        fechaCompra:
+            type: date
+        flagRestriccion:
+            type: boolean
+        flagDescontinuado:
+            type: boolean
+
+    manyToOne:
+        idPropietario:
+            targetEntity: User
+            joinColumn:
+              nullable: false
+              name: idPropietario
+              referencedColumnName: id
+              onDelete: RESTRICT
+
+    lifecycleCallbacks: {  }

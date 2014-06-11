@@ -1,0 +1,31 @@
+Qualium\InFact\AmalgamaBundle\Entity\TransaccionesDetalle:
+    type: entity
+    table: null
+    repositoryClass: Qualium\InFact\AmalgamaBundle\Entity\TransaccionesDetalleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        notas:
+            type: string
+            length: 255
+    manyToOne:
+        idTransacciones:
+            targetEntity: Transacciones
+            joinColumn:
+              nullable: false
+              name: idTransacciones
+              referencedColumnName: id
+              onDelete: RESTRICT
+        idInventario:
+            targetEntity: Inventario
+            joinColumn:
+              nullable: false
+              name: idInventario
+              referencedColumnName: id
+              onDelete: RESTRICT
+
+    lifecycleCallbacks: {  }

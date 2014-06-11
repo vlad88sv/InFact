@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+{% block title %}Herramienta Inventario{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('js/howler.js')}}" type="text/javascript"></script>
+<script type="text/javascript">
+    __ROUTE['ajax_producto_id'] = '{{ path('ajax_producto_id') }}';
+    __ROUTE['ajax_producto_codigobarra'] = '{{ path('ajax_producto_codigobarra') }}';
+    
+    // HOWLER
+    beepOk      = new Howl({urls: ['{{asset('snd/beep-ok.mp3')}}', '{{asset('snd/beep-ok.wav')}}']});
+    beepError   = new Howl({urls: ['{{asset('snd/beep-error.mp3')}}', '{{asset('snd/beep-error.wav')}}']});
+</script>
+<script src="{{asset('js/inventario.js')}}" type="text/javascript"></script>
+{% endblock %}
+{% block body %}
+    <h1>Herramienta de inventario</h1>
+    <div id="">
+        <div id="inventarioContenedorCodigoBarra">
+            <input id="inventarioCodigoBarra" type="text" value="" placeholder="- escanee o digite el codigo de barra -"/>
+        </div>
+        <div id="inventarioContenedorResultados">
+            <ul id="inventarioResultados"></ul>
+        </div>
+    </div>
+{% endblock %}
+

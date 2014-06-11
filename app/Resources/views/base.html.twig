@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ asset('css/estilo.css') }}" rel="stylesheet" type="text/css" />
+        {% block stylesheets %}{% endblock %}
+        <script>__ROUTE = {}</script>
+        <script src="{{ asset('js/jquery-2.1.1.js') }}" type="text/javascript"></script>
+        {% block javascripts %}{% endblock %}        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="content">
+                {% include '::cabeza.html.twig' %}
+                {% include '::menu.html.twig' %}
+                {% block body %}{% endblock %}
+        </div>
+        </div>
+        <div id="footer">Humans S.A. de C.V. El Salvador - Copyright {{ "now"|date("Y") }}</div>
+    </body>
+</html>

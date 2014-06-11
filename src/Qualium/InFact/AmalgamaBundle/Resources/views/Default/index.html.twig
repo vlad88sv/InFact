@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+<div class="centrar">
+    <br />
+    <br />
+    <img src="{{ asset('images/hmg.jpg') }}" />
+    <br />
+    <br />
+    <p class="super-titulo">SISTEMA INFACT</p>
+    <p>
+        <p>Debe <a href="{{ path('fos_user_security_login') }}">iniciar sesión</a> para acceder a las funciones de este sistema</p>
+    </p>
+</div>
+{% endblock %}
