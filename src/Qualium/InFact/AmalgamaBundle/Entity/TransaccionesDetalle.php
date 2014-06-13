@@ -25,6 +25,11 @@ class TransaccionesDetalle
     private $idInventario;
 
     /**
+     * @var integer
+     */
+    private $cantidad;
+    
+    /**
      * @var string
      */
     private $notas;
@@ -85,6 +90,30 @@ class TransaccionesDetalle
     {
         return $this->idInventario;
     }
+    
+    /**
+     * Set cantidad
+     *
+     * @param integer $cantidad
+     * @return Transacciones
+     */
+    public function setcantidad($cantidad)
+    {
+        $this->cantidad = $cantidad;
+
+        return $this;
+    }
+
+    /**
+     * Get cantidad
+     *
+     * @return integer 
+     */
+    public function getcantidad()
+    {
+        return $this->cantidad;
+    }
+
 
     /**
      * Set notas

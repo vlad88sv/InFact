@@ -1,70 +1,92 @@
-_CACHE_INVENTARIO = [];
+function render_prepararSalidaresultados(jsonData){
+    $("#inventarioResultados").empty();
+    for(var indice in jsonData.inventario)
+        render_agregarResultado(jsonData.inventario[indice]);
+        
+     $("#inventarioResultado" + jsonData.ultimaModificacion).fadeIn( "slow" );
+}
 
-function render_agregarResultado(articulo) {   
-    var li = $('<li>').html(articulo.nombre + ' - ' + articulo.descripcion);
+function render_agregarResultado(articulo) {
+    var li = $('<li>').html('<span style="font-size:8pt;">'+articulo.transaccion.cantidad + 'x</span> ' + articulo.nombre + ' - ' + articulo.descripcion);
+    
+    li.attr('id','inventarioResultado' + articulo.id);
+    
+    li.prepend('<img src="/images/icono_borrar.png" style="vertical-align:middle;"/>&nbsp;');
 
-    if (articulo.resultado === 'error') {
-    
-        beepError.play();
-        li.addClass('inventarioResultados_noEncontrado');
-    
-    } else if (articulo.resultado === 'duplicado') {
-    
-        beepError.play();
-        li.addClass('inventarioResultados_duplicado');
-    
-    } else {
-    
-        beepOk.play();
-        li.append('<ul><li>Estado: ');
-        li.append('<ul><li>Accion: ');
-    
-    }
+    li.append('<ul class="inventarioContenedorResutaldosDetalles"><li>Disponibilidad: ' + articulo.cantidadDisponible);
     
     $("#inventarioResultados").prepend(li);
-    li.fadeIn( "slow" );
+}
+
+function mostrarErrorDeOperacion (strData) {
+    
+    beepError.play();
+    $("#inventarioContenedorResultadosMensaje").html(strData).fadeIn('slow').delay(2000).fadeOut('slow')
+    
 }
 
 function action_buscarInventarioPorCodigoBarra(codigoBarra) {
-    $.getJSON(__ROUTE['ajax_producto_codigobarra'] + '/' + codigoBarra, function(jsonData){
+    $.getJSON(__ROUTE['ajax_producto_codigobarra'] + '/' + _OPERACION + '/' + codigoBarra, function(jsonData){
         
         if ( $.isEmptyObject(jsonData) )
         {
-            
-            jsonData = {};
-            jsonData['nombre'] = '*ERROR*';
-            jsonData['descripcion'] = 'El código ' + codigoBarra + ' produjo una excepción';
-            jsonData['resultado'] = 'error';
+            beepError.play();
+            mostrarErrorDeOperacion ('** ERROR GENERAL AJAX **');
+            return;
         }
         
-        if ( jsonData.hasOwnProperty('id') && _CACHE_INVENTARIO.indexOf(jsonData.id) > -1 ) {
-            
-            jsonData = {};
-            jsonData['nombre'] = '*DUPLICADO*';
-            jsonData['descripcion'] = 'El código ' + codigoBarra + ' ya esta en lista';
-            jsonData['resultado'] = 'duplicado';
-        
+        if (jsonData.hasOwnProperty('error'))
+        {
+            beepError.play();
+            mostrarErrorDeOperacion (jsonData.titulo + ' - ' + jsonData.descripcion);
+            return;
         }
         
-        if ( jsonData.hasOwnProperty('id') && _CACHE_INVENTARIO.indexOf(jsonData.id) === -1 ) {
-            
-            _CACHE_INVENTARIO.push(jsonData.id);
-            console.log(_CACHE_INVENTARIO);
-            
-        }
-        
-        render_agregarResultado(jsonData);
+        beepOk.play();
+        render_prepararSalidaresultados(jsonData);
     });
 }
 
 function on_inventarioCodigoBarra(e){
-    if(e.which === 13) {
+    if(e.which === 13 && $(this).val() !== '') {
         action_buscarInventarioPorCodigoBarra($(this).val());
+        $(this).val('');
     }
 }
 
+
+function on_inventarioProcesarTransaccion(e) {
+    
+    $.getJSON(__ROUTE['ajax_inventario_procesar'], function(jsonData){
+        $("#inventarioContenedorResultados").html('Transaccion procesada!');
+    });
+ 
+}
+
+function action_hidratarInventario() {
+    $.getJSON(__ROUTE['ajax_cargarInventarioVirtual'], function(jsonData){
+       render_prepararSalidaresultados(jsonData);
+    });
+}
+
+function on_inventarioEliminarVirtual() {
+    $.getJSON(__ROUTE['ajax_eliminarInventarioVirtual'], function(){
+        action_hidratarInventario();
+    });
+}
+
 $(function(){
-   $("#inventarioCodigoBarra").focus();
    
-   $("#inventarioCodigoBarra").keypress(on_inventarioCodigoBarra);
+    $("#inventarioCodigoBarra").focus();
+   
+    $("#inventarioCodigoBarra").keypress(on_inventarioCodigoBarra);
+    
+    $("#inventarioCodigoBarra").click(function(){$(this).val('');});
+    
+    $("#inventarioEliminarVirtual").click(on_inventarioEliminarVirtual);
+    
+    $("#inventarioProcesarTransaccion").click(on_inventarioProcesarTransaccion);
+    
+    action_hidratarInventario();
+   
 });

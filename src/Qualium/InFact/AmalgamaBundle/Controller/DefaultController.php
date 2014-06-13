@@ -18,7 +18,16 @@ class DefaultController extends Controller
         
     }
     
-    public function inventarioIndexAction() {
-        return $this->render('QualiumInFactAmalgamaBundle:Default:herramienta_inventario.html.twig');
+    public function inventarioIndexAction($operacion) {
+        
+        $this->session =  $this->get('session');
+        
+        $operacion_abierta = (string) $this->session->get('inventarioVirtual/operacion', $operacion);
+              
+        if ( $operacion_abierta !== $operacion ) {
+            return $this->render('QualiumInFactAmalgamaBundle:Default:herramienta_inventario_negado.html.twig', ['operacion_abierta' => $operacion_abierta, 'operacion_deseada' => $operacion]);
+        }
+        
+        return $this->render('QualiumInFactAmalgamaBundle:Default:herramienta_inventario.html.twig', ['operacion' => $operacion]);
     }
 }

@@ -3,22 +3,38 @@ qualium_in_fact_amalgama_inicio:
     defaults: { _controller: QualiumInFactAmalgamaBundle:Default:index }
 
 inventario:
-    pattern: /herramienta/inventario
-    defaults: { _controller: QualiumInFactAmalgamaBundle:Default:inventarioIndex }
+    pattern: /inventario/herramienta/{operacion}
+    defaults: { _controller: QualiumInFactAmalgamaBundle:Default:inventarioIndex, operacion : 'salida' }
     
 ajax_producto_id:
-    pattern: /ajax/producto/id/{idProducto}
-    defaults: { _controller: QualiumInFactAmalgamaBundle:Ajax:obtenerProductoPorId, idProducto: 0 }
+    pattern: /inventario/ajax/producto/id/{idProducto}
+    defaults: { _controller: QualiumInFactAmalgamaBundle:AjaxInventario:obtenerProductoPorId, idProducto: 0 }
     requirements:
         idProducto: \d+
 
+ajax_inventario_procesar:
+    pattern: /inventario/ajax/procesar
+    defaults: { _controller: QualiumInFactAmalgamaBundle:AjaxInventario:procesarInventarioVirtual }
+
+
 ajax_producto_codigobarra:
-    pattern: /ajax/producto/codigobarra/{codigoBarra}
-    defaults: { _controller: QualiumInFactAmalgamaBundle:Ajax:obtenerProductoPorCodigoBarra, codigoBarra: 0 }
+    pattern: /inventario/ajax/producto/codigobarra/{operacion}/{codigoBarra}
+    defaults: { _controller: QualiumInFactAmalgamaBundle:AjaxInventario:obtenerProductoPorCodigoBarra, operacion: 'salida', codigoBarra: 0 }
     requirements:
         codigoBarra: \d+
+        
+ajax_eliminarInventarioVirtual:
+    pattern: /inventario/ajax/eliminarInventarioVirtual
+    defaults: { _controller: QualiumInFactAmalgamaBundle:AjaxInventario:eliminarInventarioVirtual }
 
+ajax_cargarInventarioVirtual:
+    pattern: /inventario/ajax/cargarInventarioVirtual
+    defaults: { _controller: QualiumInFactAmalgamaBundle:AjaxInventario:cargarInventarioVirtual }
 
 QualiumInFactAmalgamaBundle_admin_inventario:
         resource: "@QualiumInFactAmalgamaBundle/Resources/config/routing/inventario.yml"
         prefix:   /admin/inventario
+
+QualiumInFactAmalgamaBundle_admin_inventario_dependencia:
+        resource: "@QualiumInFactAmalgamaBundle/Resources/config/routing/inventariodependencia.yml"
+        prefix:   /admin/inventario/dependencia

@@ -5,9 +5,11 @@
 <ul class="lista_botones">
     {% if is_granted('ROLE_ADMIN') %}
     <li><a class="boton" href="{{ path('admin_inventario') }}">Mantener inventario de productos</a>
+    <li><a class="boton" href="{{ path('admin_inventario_dependencia') }}">Mantener relaciones de dependencias</a>
     {% endif %}
     {% if is_granted('ROLE_INVENTARIO') %}
-    <li><a class="boton" href="{{ path('inventario') }}">Inventario</a>
+    <li><a class="boton" href="{{ path('inventario') }}/salida">Inventario :: Salida</a>
+    <li><a class="boton" href="{{ path('inventario') }}/entrada">Inventario :: Entrada</a>
     {% endif %}
 </ul>
 {% endblock %}

@@ -23,7 +23,7 @@ class Transacciones
      * @var \DateTime
      */
     private $ftEvento;
-
+    
     /**
      * @var string
      */
@@ -85,6 +85,7 @@ class Transacciones
     {
         return $this->idUsuario;
     }
+
 
     /**
      * Set ftEvento

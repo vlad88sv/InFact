@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Resources/config/routing.yml</file>
-            <file>file:/home/vladimir/NetBeansProjects/InFact/app/Resources/views/base.html.twig</file>
-            <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Resources/views/Default/index.autorizado.html.twig</file>
             <file>file:/home/vladimir/NetBeansProjects/InFact/web/js/inventario.js</file>
+            <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Resources/config/doctrine/Inventario.orm.yml</file>
             <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Resources/views/Default/herramienta_inventario.html.twig</file>
+            <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Entity/Inventario.php</file>
             <file>file:/home/vladimir/NetBeansProjects/InFact/src/Qualium/InFact/AmalgamaBundle/Controller/AjaxController.php</file>
             <file>file:/home/vladimir/NetBeansProjects/InFact/web/css/estilo.css</file>
         </group>

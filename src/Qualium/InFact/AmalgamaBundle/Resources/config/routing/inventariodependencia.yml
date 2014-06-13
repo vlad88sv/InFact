@@ -1,0 +1,30 @@
+admin_inventario_dependencia:
+    pattern:  /
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:index" }
+
+admin_inventario_dependencia_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:show" }
+
+admin_inventario_dependencia_new:
+    pattern:  /new
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:new" }
+
+admin_inventario_dependencia_create:
+    pattern:  /create
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:create" }
+    requirements: { _method: post }
+
+admin_inventario_dependencia_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:edit" }
+
+admin_inventario_dependencia_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:update" }
+    requirements: { _method: post|put }
+
+admin_inventario_dependencia_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "QualiumInFactAmalgamaBundle:InventarioDependencia:delete" }
+    requirements: { _method: post|delete }

@@ -49,6 +49,10 @@ class Inventario
      */
     private $flagDescontinuado;
 
+    /**
+     * @var integer
+     */
+    private $cantidadDisponible;
 
     /**
      * Get id
@@ -219,5 +223,32 @@ class Inventario
     public function getFlagDescontinuado()
     {
         return $this->flagDescontinuado;
+    }
+    
+    /**
+     * Set cantidadDisponible
+     *
+     * @param integer $cantidadDisponible
+     * @return Inventario
+     */
+    public function setCantidadDisponible($cantidadDisponible)
+    {
+        $this->cantidadDisponible = $cantidadDisponible;
+
+        return $this;
+    }
+
+    /**
+     * Get cantidadDisponible
+     *
+     * @return integer 
+     */
+    public function getcantidadDisponible()
+    {
+        return $this->cantidadDisponible;
+    }
+    
+    public function __toString() {
+        return $this->getNombre();
     }
 }

@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+{% block title %}Herramienta Inventario{% endblock %}
+{% block body %}
+    <h1>Operación de inventario denegada</h1>
+    <p>Actualmente tiene una operación de <b>{{ operacion_abierta }}</b> de inventario abierta, debe concluirla o cancelarla antes de poder ejecutar una operación de <b>{{ operacion_deseada }}</b> de inventario.</p>
+    <p>Continuar con <a href="{{ path('inventario') }}/{{ operacion_abierta }}">operación de {{ operacion_abierta }}</a></p>
+{% endblock %}
+

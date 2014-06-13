@@ -2,8 +2,6 @@ Qualium\InFact\AmalgamaBundle\Entity\Inventario:
     type: entity
     table: null
     indexes:
-        codigoBarra_ix:
-          columns: [ codigoBarra ]
         flagRestriccion_ix:
           columns: [ flagRestriccion ]
         flagDescontinuado_ix:
@@ -20,6 +18,7 @@ Qualium\InFact\AmalgamaBundle\Entity\Inventario:
         codigoBarra:
             type: string
             length: 255
+            unique: true
         nombre:
             type: string
             length: 255
@@ -30,9 +29,14 @@ Qualium\InFact\AmalgamaBundle\Entity\Inventario:
             type: date
         flagRestriccion:
             type: boolean
+            nullable: true
         flagDescontinuado:
             type: boolean
-
+            nullable: true
+        cantidadDisponible:
+            type: integer
+            notnull: true;
+            
     manyToOne:
         idPropietario:
             targetEntity: User

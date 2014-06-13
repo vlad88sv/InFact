@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),            
             new Qualium\InFact\AmalgamaBundle\QualiumInFactAmalgamaBundle(),            
-            new Qualium\InFact\InventarioBundle\QualiumInFactInventarioBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

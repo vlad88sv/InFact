@@ -25,8 +25,3 @@ fos_user_change_password:
 qualium_in_fact_amalgama:
     resource: "@QualiumInFactAmalgamaBundle/Resources/config/routing.yml"
     prefix:   /
-
-qualium_in_fact_inventario:
-    resource: "@QualiumInFactInventarioBundle/Resources/config/routing.yml"
-    prefix:   /
-

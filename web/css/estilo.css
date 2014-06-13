@@ -19,12 +19,25 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    font-size: 14pt;
+    text-align: center;
+}
+
+h2 {
+    font-size: 13pt;
+}
+
+h3 {
+    font-size: 12pt;
+}
+
 a.boton {
     color: whitesmoke;
     background: #00adef;
-    border: 1px #00adef solid;
-    padding: 8px;
+    padding: 6px;
     border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
 }
 
 a.boton:hover {
@@ -119,7 +132,15 @@ a.boton:hover {
 }
 
 #inventarioContenedorCodigoBarra {
-    text-align: center;
+    width: 100%;
+}
+
+#inventarioContenedorCodigoBarra_col1 {
+    text-align: left;
+}
+
+#inventarioContenedorCodigoBarra_col2 {
+    text-align: right;
 }
 
 #inventarioCodigoBarra {
@@ -139,19 +160,31 @@ a.boton:hover {
     min-height: 500px;
     border: 1px solid #555;
     border-radius: 15px;
+    position:relative;
+    overflow-x: hidden;
+}
+
+#inventarioContenedorResultadosMensaje {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    border-bottom: 5px solid red;
+    height: 30px;
+    font-family: monospace;
+    color: red;
+    text-align: center;
+    display: none;
+    font-size: 2em;
+    background: black;
+    z-index: 99;
+    padding: 5px;
 }
 
 #inventarioResultados > li {
     display: none;
-    margin-bottom: 10px;
+    margin-bottom: 10bpx;
 }
 
-li.inventarioResultados_noEncontrado {
-    font-size:8pt;
-    color: red;
-}
-
-li.inventarioResultados_duplicado {
-    font-size:8pt;
-    color: blue;
+.inventarioContenedorResutaldosDetalles > li {
+    font-size: 8pt;
 }

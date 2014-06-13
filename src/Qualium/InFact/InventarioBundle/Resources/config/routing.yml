@@ -1,3 +1,0 @@
-qualium_in_fact_inventario_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: QualiumInFactInventarioBundle:Default:index }

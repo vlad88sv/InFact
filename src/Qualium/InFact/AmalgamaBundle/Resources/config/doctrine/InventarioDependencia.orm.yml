@@ -1,10 +1,7 @@
-Qualium\InFact\AmalgamaBundle\Entity\TransaccionesDetalle:
+Qualium\InFact\AmalgamaBundle\Entity\InventarioDependencia:
     type: entity
     table: null
-    indexes:
-        cantidad_ix:
-            columns: ['cantidad']
-    repositoryClass: Qualium\InFact\AmalgamaBundle\Entity\TransaccionesDetalleRepository
+    repositoryClass: Qualium\InFact\AmalgamaBundle\Entity\InventarioDependenciaRepository
     id:
         id:
             type: integer
@@ -12,25 +9,21 @@ Qualium\InFact\AmalgamaBundle\Entity\TransaccionesDetalle:
             generator:
                 strategy: AUTO
     fields:
-        cantidad:
-            type: integer
-        notas:
+        razon:
             type: string
             length: 255
     manyToOne:
-        idTransacciones:
-            targetEntity: Transacciones
-            joinColumn:
-              nullable: false
-              name: idTransacciones
-              referencedColumnName: id
-              onDelete: RESTRICT
         idInventario:
             targetEntity: Inventario
             joinColumn:
               nullable: false
-              name: idInventario
               referencedColumnName: id
               onDelete: RESTRICT
-
+        idInventarioRequerido:
+            targetEntity: Inventario
+            joinColumn:
+              nullable: false
+              referencedColumnName: id
+              onDelete: RESTRICT
+    
     lifecycleCallbacks: {  }
